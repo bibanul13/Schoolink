@@ -37,7 +37,7 @@ module.exports = {
         data.password = bcrypt.hashSync(data.password, salt );
         postRegisterStudent(data, (err, results) => {
             if (err) return res.json({err});
-            return res.status(200).json('User registered');
+            return res.status(200).json('User registered!');
         });
     }
 }
