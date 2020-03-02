@@ -6,6 +6,7 @@ const {
 const bcrypt = require('bcrypt');
 const webToken = require('jsonwebtoken');
 const errorHandler = require('../../middleware/errorHandler');
+const checkCode = require('../../verifyCode');
 
 module.exports = {
     timetable : async (req ,res) => {
@@ -35,8 +36,9 @@ module.exports = {
         const salt =  bcrypt.genSaltSync(12);
         let data = req.body;
         data.password = bcrypt.hashSync(data.password, salt );
+        if(!checkCode(data.student_id)) return res.status(501).json("Invalid student_id");
         postRegisterStudent(data, (err, results) => {
-            if (err) return res.json({err});
+            if (err) return res.status(500).json({err});
             return res.status(200).json('User registered');
         });
     }
