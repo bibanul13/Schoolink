@@ -1,0 +1,27 @@
+{
+  "name": "lmv",
+  "version": "1.0.0",
+  "description": "Schoolink App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Schoolink",
+    "app"
+  ],
+  "author": "Team Alpha",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "ejs-lint": "^1.0.1",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.2"
+  }
+}
