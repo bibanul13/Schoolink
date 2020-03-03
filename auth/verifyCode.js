@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let verifyCode = ( code, filePath = 'C:/PROJECTS/LMVapi/codes.json') => {
+let verifyCode = ( code, filePath = 'C:/PROJECTS/LMVapi/auth/codes.json') => {
    let codes = fs.readFileSync(filePath,'utf8' ,err => {
        if (err) throw err;
        codes = JSON.parse(codes);

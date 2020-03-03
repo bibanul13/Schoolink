@@ -5,6 +5,7 @@ const bodyParser= require('body-parser');
 const app = express();
 const useRouter = require('./api/users/user.router');
 const errorHandler = require('./middleware/errorHandler');
+let expressValidator = require('express-validator');
 
 /*app.get() =  STH
   app.post() = CREATE STH

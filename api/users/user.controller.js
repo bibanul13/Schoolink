@@ -6,7 +6,8 @@ const {
 const bcrypt = require('bcrypt');
 const webToken = require('jsonwebtoken');
 const errorHandler = require('../../middleware/errorHandler');
-const checkCode = require('../../verifyCode');
+const checkCode = require('../../auth/verifyCode');
+
 
 module.exports = {
     timetable : async (req ,res) => {
