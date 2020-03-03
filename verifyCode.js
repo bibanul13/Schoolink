@@ -5,7 +5,7 @@ let verifyCode = ( code, filePath = 'C:/PROJECTS/LMVapi/codes.json') => {
        if (err) throw err;
        codes = JSON.parse(codes);
    });
-   let codesArr = codes.replace(/\[/g ,'').replace(/\]/g,'').replace(/"/g,'').split(',');
+   let codesArr = codes.replace(/\[/g ,'').replace(/\]/g,'').replace(/"/g,'').replace(/ /g,'').split(',');
    for (let i of codesArr) {
        if (code == i) return true;
     }
