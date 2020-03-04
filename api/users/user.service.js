@@ -41,13 +41,15 @@ module.exports = {
         );
     },
 
-    postRegisterStudent : async (data, callBack) =>{
-        await pool.query(
-            `INSERT INTO cnmv.students 
+    postRegisterStudent : (data, callBack) =>{
+        const student_id = data.class_id + '_' + data.code;
+        pool.query(
+            `
+            INSERT INTO cnmv.students 
             (student_id, first_name, last_name, email, mobile_number, class_id, password)
             VALUES(?,?,?,?,?,?,?)`,
             [
-                data.student_id,
+                student_id,
                 data.first_name,
                 data.last_name,
                 data.email,
