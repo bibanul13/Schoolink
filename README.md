@@ -2,7 +2,7 @@
 ✓  get full timetable
 ✓  get timetable based on classroom and day
 ✓  register a student (based on code verification)
-✓  verify register data validity
+✓  verify register data validity (improved)
 ✗  register a teacher
 ✗  role-based authentication using JWT
 ✗  ...
