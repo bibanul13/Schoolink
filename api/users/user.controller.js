@@ -33,7 +33,7 @@ module.exports = {
         });
     },
 
-    registerStudent : async (req , res) =>{
+    registerStudent : async (req , res, next) =>{
         const salt =  bcrypt.genSaltSync(12);
         let data = req.body;
         data.password = bcrypt.hashSync(data.password, salt );
@@ -42,6 +42,7 @@ module.exports = {
             if (err) return res.status(500).json({err});
             return res.status(200).json('User registered');
         });
+        next();
     }
 }
 
