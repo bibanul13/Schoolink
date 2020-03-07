@@ -42,14 +42,13 @@ module.exports = {
     },
 
     postRegisterStudent : (data, callBack) =>{
-        const student_id = data.class_id + '_' + data.code;
         pool.query(
             `
             INSERT INTO cnmv.students 
             (student_id, first_name, last_name, email, mobile_number, class_id, password)
             VALUES(?,?,?,?,?,?,?)`,
             [
-                student_id,
+                data.class_id + '_' + data.student_code, //      field in json request : student_code
                 data.first_name,
                 data.last_name,
                 data.email,

@@ -5,7 +5,7 @@ const dataValidation = () =>{
     const passMin = 10;
     const passMax = 50;
    return [
-       body('student_id', 'Student id can\'t be empty')
+       body('student_code', 'Student code can\'t be empty')
             .notEmpty(),
        body('password')
             .notEmpty().withMessage('Password can\'t be empty')
