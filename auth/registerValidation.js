@@ -5,8 +5,6 @@ const dataValidation = () =>{
     const passMin = 10;
     const passMax = 50;
    return [
-       body('student_code', 'Student code can\'t be empty')
-            .notEmpty(),
        body('password')
             .notEmpty().withMessage('Password can\'t be empty')
             .isLength({ min : passMin , max : passMax}).withMessage(`Password must be minimum ${passMin}, maximum ${passMax} characters long`)
