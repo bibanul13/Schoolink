@@ -82,7 +82,7 @@ module.exports = {
                 err
             });
             next();
-            return res.status(200).json('Verification success!');
+            return res.status(200).json('Verification successfull!');
         })
     }
 }
