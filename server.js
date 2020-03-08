@@ -1,7 +1,7 @@
 //test API for Schoolink
 const express = require('express');
 require("dotenv").config();
-const bodyParser= require('body-parser');
+const bodyParser = require('body-parser');
 const app = express();
 const useRouter = require('./api/users/user.router');
 const errorHandler = require('./middleware/errorHandler');
@@ -13,15 +13,17 @@ let expressValidator = require('express-validator');
   app.delete() =REMOVE STH
 */
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended : true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-//Port definition 
+//Port definition
 const port = process.env.SERVER_PORT;
 
 //See when a request was made in the console
-app.use('/',(req, res, next) =>{
-    console.log(`Request was made at ${req.url}.`);
-    next();
+app.use('/', (req, res, next) => {
+  console.log(`Request was made at ${req.url}`);
+  next();
 });
 
 //routes for diferent requests
@@ -32,4 +34,3 @@ app.use('/api', useRouter);
 app.use(errorHandler);
 
 app.listen(port, () => console.log(`Connected on port  ${port}`));
-
