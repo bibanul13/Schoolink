@@ -33,4 +33,4 @@ app.use('/api', useRouter);
 
 app.use(errorHandler);
 
-app.listen('biban.epizy.com', () => console.log(`Connected on port  ${port}`));
+app.listen(port, () => console.log(`Connected on port  ${port}`));
