@@ -81,7 +81,11 @@ module.exports = {
             if (err) return res.status(500).json({
                 err
             });
+            if (results.changedRows === 0) return res.status(500).json(
+                'Account already verified!'
+            )
             next();
+            console.log(results);
             return res.status(200).json('Verification successfull!');
         })
     }
