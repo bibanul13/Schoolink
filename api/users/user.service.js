@@ -3,6 +3,7 @@ const pool = require('../../config/database');
 
 module.exports = {
 
+    //get whole timetable table
     getTimetable: async callBack => {
         await pool.query(
             `SELECT * FROM cnmv.timetable `,
@@ -15,6 +16,7 @@ module.exports = {
         );
     },
 
+    //get timetabble based on class and hour
     getTimetableByDay: async (data, callBack) => {
         await pool.query(
             `SELECT day, hour, subject_id, classroom FROM cnmv.timetable WHERE day = ? AND class = ? `,
@@ -30,6 +32,7 @@ module.exports = {
         );
     },
 
+    //get timetable by class
     getTimetableByClass: async (Class, callBack) => {
         await pool.query(
             `SELECT * FROM timetable WHERE class = ?`,
@@ -41,6 +44,13 @@ module.exports = {
         );
     },
 
+    // register a user with :
+    //        --full name
+    //        --email
+    //        --password
+    //        --phone number
+    //        --given code
+    //        --class id (a custom id for each student is made of : code + _ + class_id)
     postRegisterStudent: async (data, callBack) => {
         await pool.query(
             `
@@ -48,7 +58,7 @@ module.exports = {
             (student_id, first_name, last_name, email, mobile_number, class_id, password, verified_hash)
             VALUES(?,?,?,?,?,?,?,?)`,
             [
-                data.student_id, //field in json request : student_code
+                data.student_id, //composed of code + class_id
                 data.first_name,
                 data.last_name,
                 data.email,
@@ -76,6 +86,7 @@ module.exports = {
     //         })
     // },
 
+    //update verified status in database and update it if the hash is good
     putLinkVerification: async (student_id, callBack) => {
         await pool.query(
             `

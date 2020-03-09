@@ -3,6 +3,7 @@ const {
      validationResult
 } = require('express-validator');
 
+// Basic name, email, password, phone_number and class_id verification for student registration input
 const dataValidation = () => {
 
      const passMin = 10;
@@ -15,7 +16,6 @@ const dataValidation = () => {
                max: passMax
           }).withMessage(`Password must be minimum ${passMin}, maximum ${passMax} characters long`)
           .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/, "i").withMessage('Password should be combination of one uppercase , one lower case, one special char, one digit'),
-
           body('email')
           .isEmail().withMessage('Invalid e-mail format')
           .notEmpty().withMessage('Email can\'t be empty'),
