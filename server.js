@@ -1,3 +1,4 @@
+//!!READ THE README.md FILE
 //basic server setup on localhost
 const express = require('express');
 require("dotenv").config();
@@ -8,7 +9,7 @@ const errorHandler = require('./middleware/errorHandler');
 let expressValidator = require('express-validator');
 
 /*
-  In case i forget req types :))
+  In case I forget req types :))
   app.get() =  STH
   app.post() = CREATE STH
   app.put() = CHANGE STH

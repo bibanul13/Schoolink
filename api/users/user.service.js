@@ -1,3 +1,4 @@
+//!!READ THE README.md FILE
 const pool = require('../../config/database');
 
 

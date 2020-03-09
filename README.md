@@ -11,7 +11,12 @@ METHODS:
 ✗  ...
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-CREATE A .ENV FILE AND PUT IN IT:
+1) use npm install to install all required dependencies
+(1.1 use nodemon command in terminal to start the localhost server)
+
+2) use postman for executing request (same for the email verification link)
+
+3)CREATE A .ENV FILE AND PUT IN IT:
 
 SERVER_PORT = ....
 

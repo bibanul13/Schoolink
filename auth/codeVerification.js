@@ -1,3 +1,4 @@
+//!!READ THE README.md FILE
 //method for accesing codes.js file and verifying if the given code is in that file
 let verifyCode = (class_id, code) => {
     const class_codes = require('./codes');
