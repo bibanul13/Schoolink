@@ -1,34 +1,40 @@
-//test API for Schoolink
+//!!READ THE README.md FILE
+//basic server setup on localhost
 const express = require('express');
 require("dotenv").config();
-const bodyParser= require('body-parser');
+const bodyParser = require('body-parser');
 const app = express();
 const useRouter = require('./api/users/user.router');
 const errorHandler = require('./middleware/errorHandler');
+let expressValidator = require('express-validator');
 
-/*app.get() =  STH
+/*
+  In case I forget req types :))
+  app.get() =  STH
   app.post() = CREATE STH
   app.put() = CHANGE STH
   app.delete() =REMOVE STH
 */
+//use body parser for generating .body object in req
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended : true}));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-//Port definition 
+//Port definition in .env
 const port = process.env.SERVER_PORT;
 
-//See when a request was made in the console
-app.use('/',(req, res, next) =>{
-    console.log(`Request was made at ${req.url}.`);
-    next();
+//Console.log a request
+app.use('/', (req, res, next) => {
+  console.log(`Request was made at ${req.url}`);
+  next();
 });
 
-//routes for diferent requests
+//router usage , defined in api/user/routes
 app.use('/api', useRouter);
 
-//handle basic errors
-
+//handle basic errors, defined in middleware/errorHandler
 app.use(errorHandler);
 
+//console.log when the connection is made
 app.listen(port, () => console.log(`Connected on port  ${port}`));
-

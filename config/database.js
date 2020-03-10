@@ -1,3 +1,4 @@
+//!!READ THE README.md FILE
 const mysql = require('mysql');
 
 //Create connection to Schoolink database

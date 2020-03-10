@@ -1,18 +1,28 @@
+//!!READ THE README.md FILE
 const router = require('express').Router();
-const { timetable, 
-    timetableByDay, 
+const {
+    timetable,
+    timetableByDay,
     timetableByClass,
-    registerStudent } = require('./user.controller');
-const authorize = require('../../auth/token_validation');
+    registerStudent,
+    verifyHash
+} = require('./user.controller');
 const errorHandler = require('../../middleware/errorHandler');
-
-router.post('/register/student', registerStudent);
-
-router.get('/timetable', timetable);
-router.get('/timetable/class', timetableByClass);
-router.get('/timetable/class/day',timetableByDay);
+const {
+    validate,
+    dataValidation
+} = require('../../auth/registerValidation');
+const sendVerificationMail = require('../../auth/emailVerification');
 
 router.use(errorHandler);
 
-module.exports = router;
+router.get('/timetable', timetable);
+router.get('/timetable/class', timetableByClass);
+router.get('/timetable/class/day', timetableByDay);
 
+
+router.post('/register/student', dataValidation(), validate, registerStudent, sendVerificationMail);
+
+router.put('/register/student/verify/:token', verifyHash)
+
+module.exports = router;

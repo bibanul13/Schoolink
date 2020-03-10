@@ -1,9 +1,9 @@
 const expressJwt = require('express-jwt');
 const secret = process.env.TOKEN_STRING;
 
-
+//!!READ THE README.md FILE
 function authorize(roles = []) {
-    // roles param can be a single role string (e.g. Role.User or 'User') 
+    // roles param can be a single role string (e.g. Role.User or 'User')
     // or an array of roles (e.g. [Role.Admin, Role.User] or ['Admin', 'User'])
     if (typeof roles === 'string') {
         roles = [roles];
