@@ -36,7 +36,7 @@ module.exports = {
     //get timetable by class
     getTimetableByClass: async (Class, callBack) => {
         await pool.query(
-            `SELECT * FROM timetable WHERE class = ?`,
+            `SELECT * FROM timetable_view WHERE class = ?`,
             [Class],
             (error, results, fields) => {
                 if (error) return callBack(error);
